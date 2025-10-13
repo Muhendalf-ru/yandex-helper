@@ -14,7 +14,7 @@
 }
 
 a {
-  font-weight: 500;
+  font-weight: 400;
   color: #646cff;
   text-decoration: inherit;
 }
@@ -31,8 +31,9 @@ body,
 body {
   margin: 0;
   /* display: flex; */
-  place-items: center;
-  justify-content: center;
+  /* place-items: center; */
+  /* justify-content: center; */
+
   min-width: 320px;
   /* removed min-height to prevent page-level scrolling; root handles full height */
   overflow: hidden;
