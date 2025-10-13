@@ -167,6 +167,23 @@ body {
   text-decoration: underline;
 }
 
+/* Download button in header */
+.download-btn {
+  padding: 0.5rem 0.75rem;
+  border-radius: 10px;
+  border: none;
+  background: linear-gradient(90deg, #ff7a7a, #ffb56b);
+  color: #1a202c;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(255, 117, 117, 0.15);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.download-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(255, 117, 117, 0.2);
+}
+
 /* Hide mini-ad on very small screens */
 @media (max-width: 480px) {
   .mini-ad {
