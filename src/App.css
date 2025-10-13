@@ -369,7 +369,15 @@ textarea {
   font-family: inherit;
   transition: all 0.3s ease;
   resize: vertical;
+  margin-bottom: 5px;
 }
+
+/* Specific spacing: add gap between textarea and subsequent inputs in forms */
+/* .form-section textarea + input,
+.form-section textarea + .input,
+.form-section textarea + input[type='text'] {
+  margin-top: 1rem;
+} */
 
 input::placeholder,
 textarea::placeholder {
