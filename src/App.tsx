@@ -37,8 +37,6 @@ function App() {
   const [copyButtonText, setCopyButtonText] = useState('📋 Скопировать результат');
   const [currentGif, setCurrentGif] = useState('');
 
-  const gifList = ['🎉', '🐭', '💰', '💩'];
-
   // Fields for inflow tab
   const [inflowAmount, setInflowAmount] = useState('');
   const [inflowDate, setInflowDate] = useState('');
@@ -289,9 +287,8 @@ function App() {
     navigator.clipboard.writeText(result);
     setCopyButtonText('✅ Скопировано!');
 
-    // Выбираем случайную GIF
-    const randomGif = gifList[Math.floor(Math.random() * gifList.length)];
-    setCurrentGif(randomGif);
+    // Показываем картинку вместо эмоджи
+    setCurrentGif('/yandex-helper/medved.jpg');
     setShowGif(true);
 
     setTimeout(() => {
@@ -419,6 +416,7 @@ function App() {
     <div className={`app ${darkMode ? 'light' : 'dark'}`}>
       <header className="header">
         <div className="header-left">
+          <img src="/yandex-helper/medved.jpg" alt="gay-medved" className="medved-png" />
           <h1>Yandex Fisting Helper</h1>
           <div className="tab-buttons">
             <button
@@ -437,7 +435,7 @@ function App() {
           <div>
             <h4>Москва и Регионы - 7% | Остальные - 10% (Термокороб комса)</h4>
           </div>
-          <div className="mini-ad mini-ad-left">
+          {/* <div className="mini-ad mini-ad-left">
             <div className="ad-text">
               <a
                 className="ad-link"
@@ -454,8 +452,8 @@ function App() {
               rel="noopener noreferrer">
               <img src="/yandex-helper/lemon.jpg" alt="femboy" />
             </a>
-          </div>
-          <div className="mini-ad">
+          </div> */}
+          {/* <div className="mini-ad">
             <a
               className="ad-img-link"
               href="https://store.steampowered.com/app/3602290/FEMBOY_FUTA_HOUSE/"
@@ -477,7 +475,7 @@ function App() {
                 Femboy Futa House
               </a>
             </div>
-          </div>
+          </div> */}
           <button
             className="download-btn"
             onClick={async () => {
@@ -522,6 +520,29 @@ function App() {
         </div>
       </header>
 
+      {/* Гарландa под хедером (во всю ширину) */}
+      {/* <div className="garland-wrap">
+        <img src="/yandex-helper/winter-balls.png" alt="Гирлянда" className="garland" />
+      </div> */}
+
+      {/* Снежинки (поверх контента, под шапкой) */}
+      {/* <div className="snowflakes" aria-hidden="true">
+        <div className="snowflake">❄</div>
+        <div className="snowflake">❅</div>
+        <div className="snowflake">❆</div>
+        <div className="snowflake">❄</div>
+        <div className="snowflake">❅</div>
+        <div className="snowflake">❆</div>
+        <div className="snowflake">❄</div>
+        <div className="snowflake">❅</div>
+        <div className="snowflake">❆</div>
+        <div className="snowflake">❄</div>
+        <div className="snowflake">❅</div>
+        <div className="snowflake">❆</div>
+        <div className="snowflake">❄</div>
+        <div className="snowflake">❅</div>
+        <div className="snowflake">❆</div>
+      </div> */}
       {currentTab === 'main' ? (
         <main className="main" key="main">
           <div className="template-selector">
@@ -553,7 +574,7 @@ function App() {
                   />
                   {showGif && (
                     <div className="gif-overlay">
-                      <div className="gif-placeholder">{currentGif}</div>
+                      <img src={currentGif} alt="medved" className="gif-image" />
                     </div>
                   )}
                 </div>
@@ -573,7 +594,7 @@ function App() {
                   />
                   {showGif && (
                     <div className="gif-overlay">
-                      <div className="gif-placeholder">{currentGif}</div>
+                      <img src={currentGif} alt="medved" className="gif-image" />
                     </div>
                   )}
                 </div>
@@ -593,7 +614,7 @@ function App() {
                   />
                   {showGif && (
                     <div className="gif-overlay">
-                      <div className="gif-placeholder">{currentGif}</div>
+                      <img src={currentGif} alt="medved" className="gif-image" />
                     </div>
                   )}
                 </div>

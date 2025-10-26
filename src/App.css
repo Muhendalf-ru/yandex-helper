@@ -28,6 +28,13 @@ body {
   transition: all 0.3s ease;
 }
 
+.medved-png {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover; /* чтобы изображение не искажалось */
+}
+
 .app.light {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: #2d3748;
@@ -49,6 +56,8 @@ body {
   align-items: center;
   justify-content: space-between;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 100; /* make header above garland */
 }
 
 .header-left {
@@ -509,6 +518,15 @@ textarea {
   pointer-events: none;
 }
 
+.gif-image {
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  animation: bounce 1s infinite;
+}
+
 @keyframes bounce {
   0%,
   20%,
@@ -749,5 +767,182 @@ textarea {
 
   .tab-btn {
     padding: 0.75rem;
+  }
+}
+
+/* Garland (full-width decorative image under header) */
+.garland-wrap {
+  width: 100%;
+  overflow: visible;
+  display: block;
+  position: relative;
+  z-index: 50; /* under header, above main content */
+  pointer-events: none; /* let clicks pass through */
+  /* pull garland up so it overlays page content (but header stays above due to header z-index) */
+  margin-top: -36px;
+}
+.garland {
+  display: block;
+  width: 100%;
+  height: 72px; /* default height on desktop */
+  object-fit: cover;
+  pointer-events: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+@media (max-width: 768px) {
+  .garland {
+    height: 56px;
+    /* less overlap on smaller screens */
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .garland {
+    height: 40px;
+  }
+  .garland-wrap {
+    margin-top: -24px;
+  }
+}
+
+/* Snowflakes animation */
+.snowflakes {
+  position: relative;
+  z-index: 60; /* under header (100) and above garland (50) */
+  pointer-events: none;
+  overflow: visible;
+}
+.snowflake {
+  position: fixed;
+  top: -10vh;
+  color: white;
+  font-size: 18px;
+  opacity: 0.9;
+  will-change: transform, opacity;
+  animation-name: fall, sway;
+  animation-duration: 8s, 4s;
+  animation-timing-function: linear, ease-in-out;
+  animation-iteration-count: infinite, infinite;
+  animation-delay: 0s;
+}
+
+/* generate different horizontal offsets and durations via nth-child */
+.snowflake:nth-child(1) {
+  left: 5%;
+  animation-duration: 7s;
+  animation-delay: 0s;
+  font-size: 20px;
+}
+.snowflake:nth-child(2) {
+  left: 12%;
+  animation-duration: 9s;
+  animation-delay: 1s;
+  font-size: 14px;
+}
+.snowflake:nth-child(3) {
+  left: 20%;
+  animation-duration: 11s;
+  animation-delay: 2s;
+  font-size: 16px;
+}
+.snowflake:nth-child(4) {
+  left: 28%;
+  animation-duration: 8s;
+  animation-delay: 0.5s;
+  font-size: 18px;
+}
+.snowflake:nth-child(5) {
+  left: 36%;
+  animation-duration: 10s;
+  animation-delay: 1.2s;
+  font-size: 12px;
+}
+.snowflake:nth-child(6) {
+  left: 44%;
+  animation-duration: 9.5s;
+  animation-delay: 0.3s;
+  font-size: 16px;
+}
+.snowflake:nth-child(7) {
+  left: 52%;
+  animation-duration: 12s;
+  animation-delay: 2s;
+  font-size: 18px;
+}
+.snowflake:nth-child(8) {
+  left: 60%;
+  animation-duration: 8.5s;
+  animation-delay: 0.6s;
+  font-size: 14px;
+}
+.snowflake:nth-child(9) {
+  left: 68%;
+  animation-duration: 11s;
+  animation-delay: 1.1s;
+  font-size: 20px;
+}
+.snowflake:nth-child(10) {
+  left: 76%;
+  animation-duration: 9.2s;
+  animation-delay: 0.2s;
+  font-size: 16px;
+}
+.snowflake:nth-child(11) {
+  left: 84%;
+  animation-duration: 10.5s;
+  animation-delay: 1.5s;
+  font-size: 14px;
+}
+.snowflake:nth-child(12) {
+  left: 92%;
+  animation-duration: 8.8s;
+  animation-delay: 0.8s;
+  font-size: 18px;
+}
+.snowflake:nth-child(13) {
+  left: 30%;
+  animation-duration: 13s;
+  animation-delay: 0.9s;
+  font-size: 12px;
+}
+.snowflake:nth-child(14) {
+  left: 48%;
+  animation-duration: 7.5s;
+  animation-delay: 0.4s;
+  font-size: 22px;
+}
+.snowflake:nth-child(15) {
+  left: 66%;
+  animation-duration: 12.5s;
+  animation-delay: 1.8s;
+  font-size: 16px;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-10vh) translateX(0);
+    opacity: 0.9;
+  }
+  10% {
+    opacity: 0.95;
+  }
+  100% {
+    transform: translateY(110vh) translateX(30px);
+    opacity: 0.6;
+  }
+}
+
+@keyframes sway {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(20px);
+  }
+  100% {
+    transform: translateX(0);
   }
 }
