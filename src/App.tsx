@@ -433,7 +433,7 @@ function App() {
         </div>
         <div className="header-right">
           <div>
-            <h4>Москва и Регионы - 7% | Остальные - 10% (Термокороб комса)</h4>
+            <h4>Москва и Подмосковье/Область - 10% | Остальные - 7% (Термокороб комса)</h4>
           </div>
           {/* <div className="mini-ad mini-ad-left">
             <div className="ad-text">
